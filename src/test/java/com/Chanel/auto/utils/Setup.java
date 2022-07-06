@@ -20,7 +20,7 @@ public class Setup {
 		}
 		switch (browser) {
 		case "chrome":
-			System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver4.exe");
+			System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.addArguments("['start-maximized']");
 			driver = new ChromeDriver();
