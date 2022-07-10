@@ -6,10 +6,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class BasePage {
 
 	public static JavascriptExecutor jsExecutor;
+	public static Actions actions;
+
 
 	protected WebDriver driver;
 	protected static Logger log = LogManager.getLogger();
@@ -17,6 +20,8 @@ public class BasePage {
 	public BasePage() {
 		this.driver = Setup.driver;
 		jsExecutor = (JavascriptExecutor)driver;
+		actions = new Actions(driver);
+
 
 	}
 	// Write Text by using JAVA Generic

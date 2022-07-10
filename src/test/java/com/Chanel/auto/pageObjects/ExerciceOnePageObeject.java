@@ -7,12 +7,16 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import com.Chanel.auto.utils.BasePage;
+import com.Chanel.auto.utils.CommonUtils;
 
 public class ExerciceOnePageObeject extends BasePage {
 
+	
+	CommonUtils commonUtilsObject;
 	public ExerciceOnePageObeject() {
 
 		PageFactory.initElements(driver, this);
+		this.commonUtilsObject = new CommonUtils();
 	}
 
 	/* Locators */
@@ -45,17 +49,12 @@ public class ExerciceOnePageObeject extends BasePage {
 	}
 
 	public void scrollToView() {
-
-		// jsExecutor.executeScript("window.scrollBy(0,1000)");
-
-		// jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		
 		jsExecutor.executeScript("arguments[0].scrollIntoView(true);", view);
-
-	}
-
-	public void clickOnView() {
-
 		view.click();
+		//actions.moveToElement(view).perform();
 
 	}
+
+	
 }
