@@ -45,6 +45,7 @@ Thread.sleep(3000);
 	@Then("Je vérifie si les éléments de la liste affichée contiennent {string}")
 	public void jeVérifieSiLesÉlémentsDeLaListeAffichéeContiennent(String string) throws InterruptedException {
 		Thread.sleep(3000);
+		exerciceOnePageObeject.scrollToView();
 		exerciceOnePageObeject.clickOnView();
 	  
 	}
