@@ -36,6 +36,7 @@ public class ExerciceOneStepDefinition {
 	}
 	@When("Je cherche le mot {string}")
 	public void jeChercheLeMot(String string) {
+		exerciceOnePageObeject.sumbitToDo(string);
 	
 	}
 	@Then("Je vérifie si les éléments de la liste affichée contiennent {string}")
