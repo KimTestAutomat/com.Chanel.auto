@@ -18,7 +18,7 @@ public class ExerciceOnePageObeject extends BasePage {
 	/*Locators*/
 	final static String SEARCH_BAR = "//button[@title='Search']";
 	final static String SEARCH_INPUT = "//input[@id='searchInput']";
-	final static String VIEW_PRODUCTS= "//span[contains(text(),'View More Products')]";
+final static String VIEW_PRODUCTS= "button[role='button'] span[class='button__wrapper'] span";
 
 
 	
@@ -29,7 +29,7 @@ public class ExerciceOnePageObeject extends BasePage {
 	public static WebElement search;
 	@FindBy(how = How.XPATH, using = SEARCH_INPUT)
 	public static WebElement inputText;
-	@FindBy(how = How.XPATH, using = VIEW_PRODUCTS)
+	@FindBy(how = How.CSS, using = VIEW_PRODUCTS)
 	public static WebElement view;
 	
 	
@@ -49,7 +49,11 @@ public class ExerciceOnePageObeject extends BasePage {
 	}
 	public void clickOnView() {
 		
-		jsExecutor.executeScript("arguments[0].click();", view);
+	//	jsExecutor.executeScript("window.scrollBy(0,1000)");
+
+		//jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		jsExecutor.executeScript("arguments[0].scrollIntoView(true);",view);
+
 
 	}
 }
