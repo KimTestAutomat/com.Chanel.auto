@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(features = { "src/spec/features" }, 
 plugin = { "pretty", "html:target/cucumber-report.html" },
 // glue= {""},
-tags = ("@searchProduct"), snippets = CAMELCASE, monochrome = true)
+tags = ("@searchProduct_ok"), snippets = CAMELCASE, monochrome = true)
 
 public class TestRunner {
 

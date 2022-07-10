@@ -24,6 +24,7 @@ public class Setup {
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.addArguments("['start-maximized']");
 			driver = new ChromeDriver();
+			
 			break;
 
 		case "firefox":
