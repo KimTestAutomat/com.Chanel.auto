@@ -1,5 +1,6 @@
 package com.Chanel.auto.utils;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,6 +11,7 @@ import io.cucumber.java.Before;
 public class Setup {
 
 	public static WebDriver driver;
+
 
 	@Before
 	public void setWebDriver() {
@@ -33,6 +35,7 @@ public class Setup {
 			throw new IllegalArgumentException("Browser \"" + browser + "\" is not supported.");
 
 		}
+
 	}
 }
 

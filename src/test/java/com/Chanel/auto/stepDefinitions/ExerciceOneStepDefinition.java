@@ -1,5 +1,7 @@
 package com.Chanel.auto.stepDefinitions;
 
+import java.io.IOException;
+
 import com.Chanel.auto.pageObjects.ExerciceOnePageObeject;
 import com.Chanel.auto.utils.Assertions;
 import com.Chanel.auto.utils.CommonUtils;
@@ -23,11 +25,13 @@ public class ExerciceOneStepDefinition {
 		
 
 	@Given("Je me connecte sur le site Chanel")
-	public void jeMeConnecteSurLeSiteChanel() {
-	   
+	public void jeMeConnecteSurLeSiteChanel() throws IOException {
+		commonUtils.getUrl("url");
+
 	}
 	@When("Je clique sur la barre de recherche")
 	public void jeCliqueSurLaBarreDeRecherche() {
+		exerciceOnePageObeject.clickOn();
 	   
 	}
 	@When("Je cherche le mot {string}")
