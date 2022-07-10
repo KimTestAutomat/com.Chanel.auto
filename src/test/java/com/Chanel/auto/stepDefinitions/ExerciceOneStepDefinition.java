@@ -25,13 +25,15 @@ public class ExerciceOneStepDefinition {
 		
 
 	@Given("Je me connecte sur le site Chanel")
-	public void jeMeConnecteSurLeSiteChanel() throws IOException {
+	public void jeMeConnecteSurLeSiteChanel() throws IOException, InterruptedException {
 		commonUtils.getUrl("url");
-
+Thread.sleep(3000);
 	}
 	@When("Je clique sur la barre de recherche")
-	public void jeCliqueSurLaBarreDeRecherche() {
+	public void jeCliqueSurLaBarreDeRecherche() throws InterruptedException {
 		exerciceOnePageObeject.clickOn();
+		Thread.sleep(3000);
+
 	   
 	}
 	@When("Je cherche le mot {string}")
@@ -41,6 +43,7 @@ public class ExerciceOneStepDefinition {
 	}
 	@Then("Je vérifie si les éléments de la liste affichée contiennent {string}")
 	public void jeVérifieSiLesÉlémentsDeLaListeAffichéeContiennent(String string) {
+	//	exerciceOnePageObeject.clickOnView();
 	  
 	}
 	@When("Je selectionne le deuxième élément de la liste")
