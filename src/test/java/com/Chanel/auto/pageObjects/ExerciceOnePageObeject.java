@@ -1,6 +1,10 @@
 package com.Chanel.auto.pageObjects;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -23,6 +27,8 @@ public class ExerciceOnePageObeject extends BasePage {
 	final static String SEARCH_BAR = "//button[@title='Search']";
 	final static String SEARCH_INPUT = "//input[@id='searchInput']";
 	final static String VIEW_PRODUCTS = "button[role='button'] span[class='button__wrapper'] span";
+	final static String ROUGE_ALLURE= "//*[contains(text(),'ROUGE ALLURE')]";
+
 
 	/* FindBy */
 
@@ -55,6 +61,18 @@ public class ExerciceOnePageObeject extends BasePage {
 		//actions.moveToElement(view).perform();
 
 	}
+    public List<WebElement> findElements(By ROUGE_ALLURE)
+    {
+        try
+        {
+            return driver.findElements(ROUGE_ALLURE);
+        }
+        catch (NoSuchElementException e)
+        {
+            log.error(this.getClass().getName(), "findElements", "element not found" + ROUGE_ALLURE);
+            throw new NoSuchElementException(e.getMessage());
+        }
+    }
 
 	
 }
