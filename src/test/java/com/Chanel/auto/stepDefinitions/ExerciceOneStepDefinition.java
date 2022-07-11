@@ -2,8 +2,14 @@ package com.Chanel.auto.stepDefinitions;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 
+import javax.xml.xpath.XPath;
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -55,18 +61,33 @@ public class ExerciceOneStepDefinition extends BasePage {
 	}
 
 	@Then("Je vérifie si les éléments de la liste affichée contiennent {string}")
-	public void jeVérifieSiLesÉlémentsDeLaListeAffichéeContiennent(String string) throws InterruptedException {
-	
+	public void jeVérifieSiLesÉlémentsDeLaListeAffichéeContiennent(String product) throws InterruptedException {
+
+		boolean viewDisplayed = ExerciceOnePageObeject.moreView.isDisplayed();
+		while (viewDisplayed)
+			try {
+				{
+					commonUtils.scrollPage(ExerciceOnePageObeject.moreView);
+					commonUtils.clickOnElementUsingJs(ExerciceOnePageObeject.moreView);
+
+					Thread.sleep(3000);
+				}
+			} catch (Exception e) {
+
+				viewDisplayed = false;
+
+			}
+
+		List<WebElement> list = commonUtils.findElements(By.xpath(exerciceOnePageObeject.LIST_PRODUCT));
+		System.out.println(" The list contains " + list.size() + " product");
+		for (WebElement option : list) {
+
+			Assert.assertTrue(option.getText().contains(product.toLowerCase()));
+			
+		}
 		
-		while (ExerciceOnePageObeject.moreView.isDisplayed())
-		{
-		commonUtils.scrollPage(ExerciceOnePageObeject.moreView);
-		commonUtils.clickOnElementUsingJs(ExerciceOnePageObeject.moreView);
-		
-		Thread.sleep(3000);
-		
-        }
-		
+		System.out.println(list.get(2).getText());
+
 	}
 
 	@When("Je selectionne le deuxième élément de la liste")

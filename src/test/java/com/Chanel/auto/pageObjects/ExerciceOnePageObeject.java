@@ -25,6 +25,7 @@ public class ExerciceOnePageObeject extends BasePage {
 	final static String SEARCH = "//button[@title='Search']";
 	final static String INPUT_SEARCH = "searchInput";
 	final static String MORE_VIEW = "//button[@class = 'button is-secondary is-loadmore js-plp-loadmore']";
+	public final static String LIST_PRODUCT = "//div[@class = 'product-list-inline']";
 
 	/* FindBy */
 	@FindBy(how = How.XPATH, using = SEARCH)
