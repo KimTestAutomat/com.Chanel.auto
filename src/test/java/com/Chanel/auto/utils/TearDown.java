@@ -8,7 +8,7 @@ import io.cucumber.java.Scenario;
 
 public class TearDown {
 
-//	@After
+	@After
 	public void quitDriver(Scenario scenario) {
 		if (scenario.isFailed()) {
 			final byte[] screenshot = ((TakesScreenshot) Setup.driver).getScreenshotAs(OutputType.BYTES);

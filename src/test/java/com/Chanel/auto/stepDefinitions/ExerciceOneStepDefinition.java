@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.util.List;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.Chanel.auto.pageObjects.ExerciceOnePageObeject;
 import com.Chanel.auto.utils.Assertions;
 import com.Chanel.auto.utils.BasePage;
 import com.Chanel.auto.utils.CommonUtils;
+import com.Chanel.auto.utils.Setup;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -83,23 +83,13 @@ public class ExerciceOneStepDefinition extends BasePage {
 
 	}
 
-	@When("Je selectionne le deuxième élément de la liste")
-	public String jeSelectionneLeDeuxièmeÉlémentDeLaListe() {
+	@When("Je selectionne le deuxième élément de la liste et Je vérifie que le nom de produit est le même selectionné")
+	public void jeSelectionneLeDeuxièmeÉlémentDeLaListeEtJeVérifieQueLeNomDeProduitEstLeMêmeSelectionné() {
 
+		final String selectedProduct = list.get(1).getText();
 		exerciceOnePageObeject.clickButton(list.get(1));
-		try {
-		String text = list.get(1).getText();
-		System.out.println(text);
-		}
-		catch(Exception e)
-		{System.out.println("exception");}				
-		
-		return "text";
-
-	}
-
-	@Then("Je vérifie que le nom de produit est le même selectionné")
-	public void jeVérifieQueLeNomDeProduitEstLeMêmeSelectionné() {
+		String currentProduct = ExerciceOnePageObeject.product.getText();
+		Assert.assertTrue(selectedProduct.contains(currentProduct.toLowerCase()));
 
 	}
 
