@@ -1,17 +1,11 @@
 package com.Chanel.auto.stepDefinitions;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.util.List;
-
-import javax.xml.xpath.XPath;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.Chanel.auto.pageObjects.ExerciceOnePageObeject;
 import com.Chanel.auto.utils.Assertions;
@@ -27,6 +21,7 @@ public class ExerciceOneStepDefinition extends BasePage {
 	ExerciceOnePageObeject exerciceOnePageObeject;
 	Assertions assertions;
 	CommonUtils commonUtils;
+	List<WebElement> list;
 
 	public ExerciceOneStepDefinition() {
 
@@ -78,20 +73,28 @@ public class ExerciceOneStepDefinition extends BasePage {
 
 			}
 
-		List<WebElement> list = commonUtils.findElements(By.xpath(exerciceOnePageObeject.LIST_PRODUCT));
+		list = ExerciceOnePageObeject.listPrdt;
 		System.out.println(" The list contains " + list.size() + " product");
 		for (WebElement option : list) {
 
 			Assert.assertTrue(option.getText().contains(product.toLowerCase()));
-			
+
 		}
-		
-		System.out.println(list.get(2).getText());
 
 	}
 
 	@When("Je selectionne le deuxième élément de la liste")
-	public void jeSelectionneLeDeuxièmeÉlémentDeLaListe() {
+	public String jeSelectionneLeDeuxièmeÉlémentDeLaListe() {
+
+		exerciceOnePageObeject.clickButton(list.get(1));
+		try {
+		String text = list.get(1).getText();
+		System.out.println(text);
+		}
+		catch(Exception e)
+		{System.out.println("exception");}				
+		
+		return "text";
 
 	}
 
