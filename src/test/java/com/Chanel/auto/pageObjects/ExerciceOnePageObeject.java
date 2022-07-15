@@ -28,6 +28,14 @@ public class ExerciceOnePageObeject extends BasePage {
 	final static String SEARCH_INPUT = "//input[@id='searchInput']";
 	final static String VIEW_PRODUCTS = "button[role='button'] span[class='button__wrapper'] span";
 	final static String ROUGE_ALLURE= "//*[contains(text(),'ROUGE ALLURE')]";
+	final static String MAKEUP="//span[contains(text(),'Makeup')]";
+	final static String LIPSTICK="//a[normalize-space()='Lipstick']";
+	final static String ROUGE_ALLURE_PROD="(//span[contains(@role,'presentation')])[6]"; 
+	final static String ADD_TO_BAG= "//span[normalize-space()='Add to bag']";
+	//final static String QTY= "//span[contains(text(),'QTY 1']";
+		final static String QTY= "//span[contains(text(),'QTY 1')]";
+
+
 
 
 	/* FindBy */
@@ -38,6 +46,16 @@ public class ExerciceOnePageObeject extends BasePage {
 	public static WebElement inputText;
 	@FindBy(how = How.CSS, using = VIEW_PRODUCTS)
 	public static WebElement view;
+	@FindBy(how = How.XPATH, using = MAKEUP)
+	public static WebElement makeUp;
+	@FindBy(how = How.XPATH, using = LIPSTICK)
+	public static WebElement lip;
+	@FindBy(how = How.XPATH, using = ROUGE_ALLURE_PROD)
+	public static WebElement rougeAllure;
+	@FindBy(how = How.XPATH, using = ADD_TO_BAG)
+	public static WebElement bag;
+	@FindBy(how = How.XPATH, using = QTY)
+	public static WebElement qte;
 
 	/* Methods */
 
@@ -74,5 +92,43 @@ public class ExerciceOnePageObeject extends BasePage {
         }
     }
 
+    
+	public void clickOnMakeUp() {
+
+		jsExecutor.executeScript("arguments[0].click();", makeUp);
+
+	}
+	public void clickOnLip() {
+
+		jsExecutor.executeScript("arguments[0].click();", lip);
+
+	}
 	
+	public void scrollToRougeAllure() {
+		
+		jsExecutor.executeScript("arguments[0].scrollIntoView(true);", rougeAllure);
+
+
+	}
+	
+	public void clickOnRougeAllure() {
+		
+
+		jsExecutor.executeScript("arguments[0].click();", rougeAllure);
+
+	}
+	
+	
+	public void clickOnBag() {
+		
+
+		jsExecutor.executeScript("arguments[0].click();", bag);
+
+	}
+	
+	public String qty(String qteRec) {
+	qteRec = qte.getText();
+		return qteRec;
+		
+	}
 }
