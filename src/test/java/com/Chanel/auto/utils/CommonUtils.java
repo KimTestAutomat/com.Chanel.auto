@@ -72,8 +72,10 @@ public class CommonUtils extends BasePage {
 	 * @param element to be clicked
 	 */
 	public void clickOnElementUsingJs(WebElement element) {
-		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		try{JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		jsExecutor.executeScript("arguments[0].click();", element);
+		}
+		catch(Exception e) {}
 	}
 
 	/**
@@ -275,4 +277,6 @@ public class CommonUtils extends BasePage {
 
 
 	}
+	
+	
 }
