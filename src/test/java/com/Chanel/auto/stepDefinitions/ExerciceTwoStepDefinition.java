@@ -55,24 +55,25 @@ public class ExerciceTwoStepDefinition {
 	public void jeLAjouteAuPanier() throws InterruptedException {
 		
 		Thread.sleep(3000);
-		commonUtils.clickOnElementUsingJs(ExerciceTwoPageObject.addBug);
+		commonUtils.clickOnElementUsingJs(ExerciceTwoPageObject.addBag);
 	}
 
-	@When("J affiche le panier")
-	public void jAfficheLePanier() {
-		
-		exerciceTwoPageObject.clickMenu(ExerciceTwoPageObject.reviewBug);
-	}
-
+	
 	@Then("Je vérifie si {string} dans le panier")
 	public void jeVérifieSiDansLePanier(String string) {
-
+	    
+		String text = ExerciceTwoPageObject.productBag.getText();
+		System.out.println(text);
+		
 	}
 
-	@Then("je vérifie quantité egale à {int}")
-	public void jeVérifieQuantitéEgaleÀ(Integer int1) {
-
+	
+	@Then("je vérifie quantité egale à {string}")
+	public void jeVérifieQuantitéEgaleÀ(String string) {
+	   
 	}
+
+
 
 	@Then("je vérifie prix égale au prix de produit")
 	public void jeVérifiePrixÉgaleAuPrixDeProduit() {

@@ -9,9 +9,8 @@ Feature: Achat de produit sur le site chanel
     When J accède à la catégorie Makeup lipStick
     And Je clique sur le produit ROUGE ALLURE
     And Je l ajoute au panier
-    And J affiche le panier
     Then Je vérifie si "ROUGE ALLURE" dans le panier
-    And je vérifie quantité egale à 1
+    And je vérifie quantité egale à "QTY 1"
     And je vérifie prix égale au prix de produit
     
 

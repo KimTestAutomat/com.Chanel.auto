@@ -19,8 +19,8 @@ public class ExerciceTwoPageObject extends BasePage {
 	final static String MENU = "makeup";
 	final static String LIPSTICK = "/html[1]/body[1]/header[1]/div[1]/div[1]/div[2]/nav[1]/ul[2]/li[3]/div[1]/div[1]/div[2]/div[4]/div[2]/ul[1]/li[1]/a[1]";
 	final static String ROUGE_ALLURE ="//a[@href = '/us/makeup/p/160990/rouge-allure-luminous-intense-lip-colour/']";
-	final static String ADD_BUG ="pos-cnc-btn";
-	final static String REVIEW_BUG ="//span[normalize-space()='Review Bag & Checkout']";
+	final static String ADD_BAG ="pos-cnc-btn";
+	final static String PRODUCT_BAG ="//body/div[13]/div[1]/div[4]/div[2]/ol[1]/li[1]/article[1]/form[1]/div[1]/div[1]/div[1]/a[1]/span[1]";
 	
 	/* FindBy */
 	@FindBy(how = How.ID, using = MENU)
@@ -32,11 +32,11 @@ public class ExerciceTwoPageObject extends BasePage {
 	@FindBy(how = How.XPATH, using = ROUGE_ALLURE)
 	public static WebElement rougeAllure;
 	
-	@FindBy(how = How.ID, using = ADD_BUG)
-	public static WebElement addBug;
+	@FindBy(how = How.ID, using = ADD_BAG)
+	public static WebElement addBag;
 
-	@FindBy(how = How.XPATH, using = REVIEW_BUG)
-	public static WebElement reviewBug;
+	@FindBy(how = How.XPATH, using = PRODUCT_BAG)
+	public static WebElement productBag;
 	/* Methods */
 	public void clickMenu(WebElement element) {
 
