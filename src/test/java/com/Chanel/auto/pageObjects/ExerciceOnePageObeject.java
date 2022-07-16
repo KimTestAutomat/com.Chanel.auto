@@ -33,7 +33,7 @@ public class ExerciceOnePageObeject extends BasePage {
 	final static String ROUGE_ALLURE_PROD="(//span[contains(@role,'presentation')])[6]"; 
 	final static String ADD_TO_BAG= "//span[normalize-space()='Add to bag']";
 	//final static String QTY= "//span[contains(text(),'QTY 1']";
-		final static String QTY= "//span[contains(text(),'QTY 1')]";
+		final static String QTY= "//p[@class='cart-product__quantity']";
 
 
 
