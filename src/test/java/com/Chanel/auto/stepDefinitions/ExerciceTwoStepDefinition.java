@@ -1,5 +1,6 @@
 package com.Chanel.auto.stepDefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -53,31 +54,38 @@ public class ExerciceTwoStepDefinition {
 
 	@When("Je l ajoute au panier")
 	public void jeLAjouteAuPanier() throws InterruptedException {
-		
+
 		Thread.sleep(3000);
 		commonUtils.clickOnElementUsingJs(ExerciceTwoPageObject.addBag);
 	}
 
-	
 	@Then("Je vérifie si {string} dans le panier")
-	public void jeVérifieSiDansLePanier(String string) {
-	    
+	public void jeVérifieSiDansLePanier(String product) throws InterruptedException {
+
+		Thread.sleep(5000);
 		String text = ExerciceTwoPageObject.productBag.getText();
+		Assert.assertEquals(product, text);
 		System.out.println(text);
-		
 	}
 
-	
 	@Then("je vérifie quantité egale à {string}")
-	public void jeVérifieQuantitéEgaleÀ(String string) {
-	   
+	public void jeVérifieQuantitéEgaleÀ(String quantity) throws InterruptedException {
+
+		String text = ExerciceTwoPageObject.bagQuantity.getText();
+		Assert.assertEquals(quantity, text);
+		System.out.println(text);
+
 	}
-
-
 
 	@Then("je vérifie prix égale au prix de produit")
 	public void jeVérifiePrixÉgaleAuPrixDeProduit() {
 
+		String price = ExerciceTwoPageObject.price.getText();
+		System.out.println(price);
+		String total = ExerciceTwoPageObject.totalBag.getText();
+		System.out.println(total);
+		Assert.assertEquals(price, total);
+		
 	}
 
 }
