@@ -15,8 +15,8 @@ import com.Chanel.auto.utils.CommonUtils;
 
 public class ExerciceOnePageObeject extends BasePage {
 
-	
 	CommonUtils commonUtilsObject;
+
 	public ExerciceOnePageObeject() {
 
 		PageFactory.initElements(driver, this);
@@ -27,14 +27,14 @@ public class ExerciceOnePageObeject extends BasePage {
 	final static String SEARCH_BAR = "//button[@title='Search']";
 	final static String SEARCH_INPUT = "//input[@id='searchInput']";
 	final static String VIEW_PRODUCTS = "button[role='button'] span[class='button__wrapper'] span";
-	final static String ROUGE_ALLURE= "//*[contains(text(),'ROUGE ALLURE')]";
-	final static String MAKEUP="//span[contains(text(),'Makeup')]";
-	final static String LIPSTICK="//a[normalize-space()='Lipstick']";
-	final static String ROUGE_ALLURE_PROD="(//span[contains(@role,'presentation')])[6]"; 
-	final static String ADD_TO_BAG= "//span[normalize-space()='Add to bag']";
-	//final static String QTY= "//span[contains(text(),'QTY 1']";
-		final static String QTY= "//p[@class='cart-product__quantity']";
-
+	final static String MAKEUP = "//span[contains(text(),'Makeup')]";
+	final static String LIPSTICK = "//a[normalize-space()='Lipstick']";
+	final static String ROUGE_ALLURE_PROD = "(//span[contains(@role,'presentation')])[6]";
+	final static String ADD_TO_BAG = "//span[normalize-space()='Add to bag']";
+	final static String QTY = "//p[@class='cart-product__quantity']";
+	final static String ROUGE_ALLURE = "//span[@class='heading is-7']";
+	final static String PRIX = "//p[@class='cart-product__price js-cart-price-item cart-default-sample']";
+	final static String SOLDE_TOTAL = "//p[@class='is-bold price-line']";
 
 
 
@@ -56,6 +56,13 @@ public class ExerciceOnePageObeject extends BasePage {
 	public static WebElement bag;
 	@FindBy(how = How.XPATH, using = QTY)
 	public static WebElement qte;
+	@FindBy(how = How.XPATH, using = ROUGE_ALLURE)
+	public static WebElement red;
+	@FindBy(how = How.XPATH, using = SOLDE_TOTAL)
+	public static WebElement total;
+	@FindBy(how = How.XPATH, using = PRIX)
+	public static WebElement prix;
+	
 
 	/* Methods */
 
@@ -73,62 +80,55 @@ public class ExerciceOnePageObeject extends BasePage {
 	}
 
 	public void scrollToView() {
-		
+
 		jsExecutor.executeScript("arguments[0].scrollIntoView(true);", view);
 		view.click();
-		//actions.moveToElement(view).perform();
+		// actions.moveToElement(view).perform();
 
 	}
-    public List<WebElement> findElements(By ROUGE_ALLURE)
-    {
-        try
-        {
-            return driver.findElements(ROUGE_ALLURE);
-        }
-        catch (NoSuchElementException e)
-        {
-            log.error(this.getClass().getName(), "findElements", "element not found" + ROUGE_ALLURE);
-            throw new NoSuchElementException(e.getMessage());
-        }
-    }
 
-    
+	public List<WebElement> findElements(By ROUGE_ALLURE) {
+		try {
+			return driver.findElements(ROUGE_ALLURE);
+		} catch (NoSuchElementException e) {
+			log.error(this.getClass().getName(), "findElements", "element not found" + ROUGE_ALLURE);
+			throw new NoSuchElementException(e.getMessage());
+		}
+	}
+
 	public void clickOnMakeUp() {
 
 		jsExecutor.executeScript("arguments[0].click();", makeUp);
 
 	}
+
 	public void clickOnLip() {
 
 		jsExecutor.executeScript("arguments[0].click();", lip);
 
 	}
-	
+
 	public void scrollToRougeAllure() {
-		
+
 		jsExecutor.executeScript("arguments[0].scrollIntoView(true);", rougeAllure);
 
-
 	}
-	
+
 	public void clickOnRougeAllure() {
-		
 
 		jsExecutor.executeScript("arguments[0].click();", rougeAllure);
 
 	}
-	
-	
+
 	public void clickOnBag() {
-		
 
 		jsExecutor.executeScript("arguments[0].click();", bag);
 
 	}
-	
+
 	public String qty(String qteRec) {
-	qteRec = qte.getText();
+		qteRec = qte.getText();
 		return qteRec;
-		
+
 	}
 }

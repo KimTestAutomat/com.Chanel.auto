@@ -2,9 +2,6 @@ package com.Chanel.auto.stepDefinitions;
 
 import java.io.IOException;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import com.Chanel.auto.pageObjects.ExerciceOnePageObeject;
 import com.Chanel.auto.utils.Assertions;
 import com.Chanel.auto.utils.CommonUtils;

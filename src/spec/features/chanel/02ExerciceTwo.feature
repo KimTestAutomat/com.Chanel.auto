@@ -9,5 +9,6 @@ Feature: Acheter un produit sur le site de Chanel
     And Je clique sur Lipstick
     And Je clique sur le produit ROUGE ALLURE
     And Je clique sur ADD TO BAG
-    Then Je vérifie que la quantité "1"
+    Then Je verifie que le produit "ROUGE ALLURE" est dans le panier
+    And Je vérifie que la quantité "1"
     And Je vérifie que le total panier est égal au prix du produit
